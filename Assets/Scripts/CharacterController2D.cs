@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class CharacterController : MonoBehaviour
+public class CharacterController2D : MonoBehaviour
 {
     [SerializeField] public float forcaPulo = 400f; // Determina o quão forte é o pulo do personagem
     // 400f por padrao	
@@ -26,10 +26,13 @@ public class CharacterController : MonoBehaviour
 
 	private Vector3 m_Velocity = Vector3.zero;
 
+    public UnityEvent OnLandEvent;
 
     private void Awake()
 	{
         m_Rigidbody2D = GetComponent<Rigidbody2D>(); //Cria o objeto para a movimentação do personagem
+        if (OnLandEvent == null)
+			OnLandEvent = new UnityEvent();
     }
 
     private void LateUpdate()
@@ -54,11 +57,13 @@ public class CharacterController : MonoBehaviour
     // Recebe se o jogador está pulando ou apenas andando normalmente
     public void Move(float movimento, bool pulando)
 	{
+        Debug.Log("Entrou em move");
         // Se pode se mover
         if (m_AirControl)
 		{
+            Debug.Log("Entrou em air_control");
             // Move o personagem de acordo com sua velocidade atual
-			Vector3 velocidadeAtual = new Vector2(move * 10f, m_Rigidbody2D.velocity.y);
+			Vector3 velocidadeAtual = new Vector2(movimento * 10f, m_Rigidbody2D.velocity.y);
 			// And then smoothing it out and applying it to the character
 			m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, velocidadeAtual, ref m_Velocity, m_MovementSmoothing);
 
@@ -71,6 +76,14 @@ public class CharacterController : MonoBehaviour
 				Flip(true); //virar para a esquerda
 			}
         }
+
+        // If the player should jump...
+		if (m_Grounded && pulando)
+		{
+			// Add a vertical force to the player.
+			m_Grounded = false;
+			m_Rigidbody2D.AddForce(new Vector2(0f, forcaPulo));
+		}
 
     }
 

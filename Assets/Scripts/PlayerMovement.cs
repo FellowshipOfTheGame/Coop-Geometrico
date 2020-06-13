@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     public CharacterController2D controller;
     public Animator animator;
 
-    public float runSpeed;
+    public float runSpeed = 40f;
     // 40f por padrão
     float horizontalMove;
     bool jump = false;
@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
         // Lembrar de setar os botões de pulo,e de andar direita e esquerda
         if (Input.GetButtonDown("Jump"))
         {
+            Debug.Log("Pulou");
             jump = true;
             //animator.SetBool("isJumping", true); // Caso tenha animação de pulo
         }
@@ -36,10 +37,6 @@ public class PlayerMovement : MonoBehaviour
             {
                 jump = true;
                 //animator.SetBool("isJumping", true); // Caso tenha animação de pulo
-            }
-            if ((touch.position.y < Screen.width / 8))
-            {
-                crouch = true;
             }
         }
 
