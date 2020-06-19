@@ -10,6 +10,11 @@ public class objColision : MonoBehaviour
         
     }
 
+    private void OnTriggerEnter2D(Collider2D other) {
+        if(other.gameObject.CompareTag("Player1")) {
+            gameObject.SetActive(false);
+        }
+    }
     // Update is called once per frame
     void Update()
     {
