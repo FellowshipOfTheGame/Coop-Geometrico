@@ -20,7 +20,7 @@ public class CameraController : MonoBehaviour
     {
         y = (Player1.transform.position.y + Player2.transform.position.y) /2;
         x = (Player1.transform.position.x + Player2.transform.position.x) /2;
-        Debug.Log("x: "+x+" y: "+y);
+        //Debug.Log("x: "+x+" y: "+y);
         gameObject.transform.position = new Vector3(x, y, 0);
     }
 }

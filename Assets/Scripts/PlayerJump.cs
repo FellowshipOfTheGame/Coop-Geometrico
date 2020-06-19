@@ -13,6 +13,11 @@ public class PlayerJump : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
+        Debug.Log(other.name);
+        /*if(other.CompareTag("Player1"))
+        {
+            Debug.Break();
+        }*/
         if(other.gameObject.CompareTag("Ground") && playerMovement.isJumping) {
             playerMovement.isJumping = false;
         }
@@ -27,7 +32,7 @@ public class PlayerJump : MonoBehaviour
             {
                 Debug.Log("está em cima de outro player!");
                 playerMovement.isJumping = false;
-                player.transform.parent = other.gameObject.transform;
+                playerMovement.emCima = true;
             }
         }
         if(gameObject.tag == "Player2" && playerMovement.isJumping)
@@ -36,7 +41,7 @@ public class PlayerJump : MonoBehaviour
             {
                 Debug.Log("está em cima de outro player!");
                 playerMovement.isJumping = false;
-                player.transform.parent = other.gameObject.transform;
+                playerMovement.emCima = true;
             }
         }
     }
@@ -44,6 +49,16 @@ public class PlayerJump : MonoBehaviour
     private void OnTriggerExit2D(Collider2D other) {
         if(other.gameObject.CompareTag("Platform")) {
             player.transform.parent = null;
+        }
+        if(other.gameObject.CompareTag("Player1"))
+        {
+            
+            playerMovement.emCima = false;
+        }
+        if(other.gameObject.CompareTag("Player2"))
+        {
+            Debug.Log("Saiu do player 2");
+            playerMovement.emCima = false;
         }
     }
 }
