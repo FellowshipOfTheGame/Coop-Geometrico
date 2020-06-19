@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Platform
   - Ground
+  - Player1
+  - Player2
   layers:
   - Default
   - TransparentFX

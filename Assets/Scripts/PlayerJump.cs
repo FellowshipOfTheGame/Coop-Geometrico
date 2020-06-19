@@ -21,6 +21,24 @@ public class PlayerJump : MonoBehaviour
             playerMovement.isJumping = false;
             player.transform.parent = other.gameObject.transform;
         }
+        if(gameObject.tag == "Player1" && playerMovement.isJumping)
+        {
+            if(other.gameObject.CompareTag("Player2"))
+            {
+                Debug.Log("está em cima de outro player!");
+                playerMovement.isJumping = false;
+                player.transform.parent = other.gameObject.transform;
+            }
+        }
+        if(gameObject.tag == "Player2" && playerMovement.isJumping)
+        {
+            if(other.gameObject.CompareTag("Player1"))
+            {
+                Debug.Log("está em cima de outro player!");
+                playerMovement.isJumping = false;
+                player.transform.parent = other.gameObject.transform;
+            }
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other) {
