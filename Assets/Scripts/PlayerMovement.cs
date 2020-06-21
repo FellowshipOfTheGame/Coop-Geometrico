@@ -20,15 +20,36 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
+        if(gameObject.tag == "Quadrado")
+        {
+            animator.SetBool("isQuadrado", true);
+            animator.SetBool("isTriangulo", false);
+            animator.SetBool("isCirculo", false);
+        }
+
+        if(gameObject.tag == "Triangulo")
+        {
+            animator.SetBool("isQuadrado", false);
+            animator.SetBool("isTriangulo", true);
+            animator.SetBool("isCirculo", false);
+        }
+
+        if(gameObject.tag == "Circulo")
+        {
+            animator.SetBool("isQuadrado", false);
+            animator.SetBool("isTriangulo", false);
+            animator.SetBool("isCirculo", true);
+        }
     }
 
-    
-    
+
+
     // Update is called once per frame
     void Update()
     {
-        if(gameObject.tag == "Player1")
+        if(gameObject.name == "Player1_Quadrado" || gameObject.name == "Player1_Triangulo" || gameObject.name == "Player1_Circulo")
         {
+
             if(emCima)
             {
                 var dist = p2.transform.position - ultimaPos2;
@@ -42,13 +63,11 @@ public class PlayerMovement : MonoBehaviour
             {
                 animator.SetFloat("speed",(move*-1));
                 transform.eulerAngles = new Vector3(0, 180, 0);
-            } else
-            if(move > 0)
+            } else if(move > 0)
             {
                 animator.SetFloat("speed",move);
                 transform.eulerAngles = new Vector3(0, 0, 0);
-            } else 
-            if(move == 0)
+            } else if(move == 0)
                 animator.SetFloat("speed",(float)0);
 
             if(Input.GetButtonDown("Jump") && !isJumping) {
@@ -57,7 +76,8 @@ public class PlayerMovement : MonoBehaviour
             }
             ultimaPos2 = p2.transform.position;
         }
-        if(gameObject.tag == "Player2")
+
+        if(gameObject.name == "Player2_Quadrado" || gameObject.name == "Player2_Triangulo" || gameObject.name == "Player2_Circulo")
         {
             if(emCima)
             {
@@ -69,9 +89,16 @@ public class PlayerMovement : MonoBehaviour
             rigidbody.velocity = new Vector3(move*playerSpeed, rigidbody.velocity.y);
 
             if(move < 0)
+            {
+                animator.SetFloat("speed",(move*-1));
                 transform.eulerAngles = new Vector3(0, 180, 0);
+            }
             else if(move > 0)
+            {
+                animator.SetFloat("speed",move);
                 transform.eulerAngles = new Vector3(0, 0, 0);
+            } else if(move == 0)
+                animator.SetFloat("speed",(float)0);
 
             if(Input.GetButtonDown("Jump2") && !isJumping) {
                 rigidbody.AddForce(new Vector2(rigidbody.velocity.x, jumpForce));
@@ -79,10 +106,14 @@ public class PlayerMovement : MonoBehaviour
             }
             ultimaPos1 = p1.transform.position;
         }
-        
-        
+
+        if(gameObject.tag == "Circulo")
+        {
+
+        }
+
     }
-    
+
 
 
 }

@@ -8,6 +8,9 @@ TagManager:
   - Ground
   - Player1
   - Player2
+  - Triangulo
+  - Quadrado
+  - Circulo
   layers:
   - Default
   - TransparentFX

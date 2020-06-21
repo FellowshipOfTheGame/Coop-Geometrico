@@ -26,18 +26,18 @@ public class PlayerJump : MonoBehaviour
             playerMovement.isJumping = false;
             player.transform.parent = other.gameObject.transform;
         }
-        if(gameObject.tag == "Player1" && playerMovement.isJumping)
+        if(gameObject.tag == "Quadrado" && playerMovement.isJumping)
         {
-            if(other.gameObject.CompareTag("Player2"))
+            if(other.gameObject.CompareTag("Triangulo"))
             {
                 Debug.Log("está em cima de outro player!");
                 playerMovement.isJumping = false;
                 playerMovement.emCima = true;
             }
         }
-        if(gameObject.tag == "Player2" && playerMovement.isJumping)
+        if((gameObject.tag == "Triangulo" || gameObject.tag == "Triangulo") && playerMovement.isJumping)
         {
-            if(other.gameObject.CompareTag("Player1"))
+            if(other.gameObject.CompareTag("Quadrado"))
             {
                 Debug.Log("está em cima de outro player!");
                 playerMovement.isJumping = false;
@@ -50,12 +50,12 @@ public class PlayerJump : MonoBehaviour
         if(other.gameObject.CompareTag("Platform")) {
             player.transform.parent = null;
         }
-        if(other.gameObject.CompareTag("Player1"))
+        if(other.gameObject.CompareTag("Quadrado"))
         {
-            
+
             playerMovement.emCima = false;
         }
-        if(other.gameObject.CompareTag("Player2"))
+        if(other.gameObject.CompareTag("Triangulo"))
         {
             Debug.Log("Saiu do player 2");
             playerMovement.emCima = false;
