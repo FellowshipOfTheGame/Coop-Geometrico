@@ -6,13 +6,13 @@ public class PlayerMovement : MonoBehaviour
 {
     public float playerSpeed;
     public float jumpForce;
-
     public bool isJumping;
     public bool emCima;
     private float move;
     private Rigidbody2D rigidbody;
     public GameObject p1;
     public GameObject p2;
+    public Animator animator;
 
     private Vector3 ultimaPos1;
     private Vector3 ultimaPos2;
@@ -39,10 +39,18 @@ public class PlayerMovement : MonoBehaviour
             rigidbody.velocity = new Vector3(move*playerSpeed, rigidbody.velocity.y);
 
             if(move < 0)
+            {
+                animator.SetFloat("speed",(move*-1));
                 transform.eulerAngles = new Vector3(0, 180, 0);
-            else if(move > 0)
+            } else
+            if(move > 0)
+            {
+                animator.SetFloat("speed",move);
                 transform.eulerAngles = new Vector3(0, 0, 0);
-            
+            } else 
+            if(move == 0)
+                animator.SetFloat("speed",(float)0);
+
             if(Input.GetButtonDown("Jump") && !isJumping) {
                 rigidbody.AddForce(new Vector2(rigidbody.velocity.x, jumpForce));
                 isJumping = true;
