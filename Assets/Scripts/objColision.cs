@@ -4,37 +4,102 @@ using UnityEngine;
 
 public class objColision : MonoBehaviour
 {
-    private bool colisao = false;
-    private string tipoPorta;
+    public GameObject Player1;
+    public GameObject Player2;
+    public GameObject NovoPrefab;
+    public Transform TeleportPosition;
+    private bool ColisaoP1 = false;
+    private bool ColisaoP2 = false;
+    private string tipo;
+
     // Start is called before the first frame update
     void Start()
     {
         /* Determina a tipo de peça que pode entrar na porta */
         if(gameObject.tag == "PortaTriangulo")
-            tipoPorta = "Triangulo";
+            tipo = "Triangulo";
 
-        if(gameObject.tag == "PortaQuadrado")
-            tipoPorta = "Quadrado";
+        else if(gameObject.tag == "PortaQuadrado")
+            tipo = "Quadrado";
 
-        if(gameObject.tag == "PortaCirculo")
-            tipoPorta = "Circulo";
+        else if(gameObject.tag == "PortaCirculo")
+            tipo = "Circulo";
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        colisao = true;
-        Debug.Log(colisao);
+        /* Caso o player1 colida com a porta*/
+        if(Object.ReferenceEquals(Player1, other.gameObject.transform.parent.gameObject))
+        {
+            ColisaoP1 = true;
+        }
+
+        /* Caso o player2 colida com a porta*/
+        if(Object.ReferenceEquals(Player2, other.gameObject.transform.parent.gameObject))
+        {
+            ColisaoP2 = true;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other) {
-        colisao = false;
-        Debug.Log(colisao);
+        /* Caso o player1 saia da porta*/
+        if(Object.ReferenceEquals(Player1, other.gameObject.transform.parent.gameObject))
+        {
+            ColisaoP1 = false;
+        }
+
+        /* Caso o player2 saia da porta*/
+        if(Object.ReferenceEquals(Player2, other.gameObject.transform.parent.gameObject))
+        {
+            ColisaoP2 = false;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.E) && colisao == true)
-            Debug.Log("entrou na porta");
+        if(Input.GetKeyDown(KeyCode.E) && ColisaoP1 == true)
+        {
+            if(gameObject.tag == "MudaTriangulo" ||
+               gameObject.tag == "MudaQuadrado" ||
+               gameObject.tag == "MudaCirculo")
+            {
+                /* Troca o personagem */
+                Destroy(Player1.transform.GetChild(0).gameObject);
+                var PlayerTrocado = Instantiate(NovoPrefab, Player1.transform.position, Quaternion.identity);
+                PlayerTrocado.transform.parent = Player1.transform;
+            }
+
+
+            if(gameObject.tag == "PortaTriangulo" ||
+               gameObject.tag == "PortaQuadrado" ||
+               gameObject.tag == "PortaCirculo")
+            {
+                /* Teleporta o personagem */
+                Player1.transform.position = new Vector2 (TeleportPosition.position.x, TeleportPosition.position.y);
+            }
+        }
+
+        if(Input.GetKeyDown(KeyCode.L) && ColisaoP2 == true)
+        {
+            if(gameObject.tag == "MudaTriangulo" ||
+               gameObject.tag == "MudaQuadrado" ||
+               gameObject.tag == "MudaCirculo")
+            {
+                /* Troca o personagem */
+                Destroy(Player2.transform.GetChild(0).gameObject);
+                var PlayerTrocado = Instantiate(NovoPrefab, Player2.transform.position, Quaternion.identity);
+                PlayerTrocado.transform.parent = Player2.transform;
+            }
+
+
+            if(gameObject.tag == "PortaTriangulo" ||
+               gameObject.tag == "PortaQuadrado" ||
+               gameObject.tag == "PortaCirculo")
+            {
+                /* Teleporta o personagem */
+                Player2.transform.position = new Vector2 (TeleportPosition.position.x, TeleportPosition.position.y);
+            }
+        }
 
     }
 }

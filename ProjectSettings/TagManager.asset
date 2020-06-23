@@ -11,6 +11,12 @@ TagManager:
   - Triangulo
   - Quadrado
   - Circulo
+  - MudaTriangulo
+  - MudaQuadrado
+  - MudaCirculo
+  - PortaTriangulo
+  - PortaCirculo
+  - PortaQuadrado
   layers:
   - Default
   - TransparentFX
