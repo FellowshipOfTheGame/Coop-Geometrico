@@ -9,7 +9,7 @@ public class PlayerJump : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = gameObject;
+        player = gameObject.transform.parent.gameObject.transform.parent.gameObject;
         playerMovement = GetComponentInParent<PlayerMovement>();
     }
 
@@ -20,13 +20,15 @@ public class PlayerJump : MonoBehaviour
         }*/
         playerMovement.isJumping = false;
 
-        if(other.gameObject.CompareTag("Platform"))
-            player.transform.parent.gameObject.transform.parent.gameObject.transform.parent = other.gameObject.transform;
+        if(other.gameObject.CompareTag("Platform")) {
+            player.transform.parent = other.gameObject.transform;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other) {
         if(other.gameObject.CompareTag("Platform")) {
-            player.transform.parent.gameObject.transform.parent.gameObject.transform.parent = null;
+            player.transform.parent = null;
+            player.transform.localScale = new Vector3(1, 1, 1);
         }
 
         if(other.gameObject.CompareTag("Quadrado"))

@@ -24,20 +24,33 @@ public class objColision : MonoBehaviour
 
         else if(gameObject.tag == "PortaCirculo")
             tipo = "Circulo";
+
+        else if(gameObject.tag == "MudaTriangulo" ||
+                gameObject.tag == "MudaQuadrado" ||
+                gameObject.tag == "MudaCirculo")
+            tipo = "Muda";
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
         /* Caso o player1 colida com a porta*/
-        if(Object.ReferenceEquals(Player1, other.gameObject.transform.parent.gameObject))
+        if(Player1.transform.GetChild(0).tag == tipo || tipo == "Muda")
         {
-            ColisaoP1 = true;
+            if(Object.ReferenceEquals(Player1, other.gameObject.transform.parent.gameObject))
+            {
+                ColisaoP1 = true;
+            }
         }
 
+
         /* Caso o player2 colida com a porta*/
-        if(Object.ReferenceEquals(Player2, other.gameObject.transform.parent.gameObject))
+        if(Player2.transform.GetChild(0).tag == tipo || tipo == "Muda")
         {
-            ColisaoP2 = true;
+            if(Object.ReferenceEquals(Player2, other.gameObject.transform.parent.gameObject))
+            {
+                ColisaoP2 = true;
+            }
         }
+
     }
 
     private void OnTriggerExit2D(Collider2D other) {
@@ -59,9 +72,7 @@ public class objColision : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.E) && ColisaoP1 == true)
         {
-            if(gameObject.tag == "MudaTriangulo" ||
-               gameObject.tag == "MudaQuadrado" ||
-               gameObject.tag == "MudaCirculo")
+            if(tipo == "Muda")
             {
                 /* Troca o personagem */
                 Destroy(Player1.transform.GetChild(0).gameObject);
@@ -81,9 +92,7 @@ public class objColision : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.L) && ColisaoP2 == true)
         {
-            if(gameObject.tag == "MudaTriangulo" ||
-               gameObject.tag == "MudaQuadrado" ||
-               gameObject.tag == "MudaCirculo")
+            if(tipo == "Muda")
             {
                 /* Troca o personagem */
                 Destroy(Player2.transform.GetChild(0).gameObject);
