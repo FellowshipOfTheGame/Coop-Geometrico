@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5511305116223416996}
   - component: {fileID: 5511305116223416997}
-  - component: {fileID: 5511305116223416995}
+  - component: {fileID: 2553691980154196037}
   m_Layer: 0
   m_Name: MudaTriangulo
   m_TagString: MudaTriangulo
@@ -58,7 +58,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.39045608, y: 0.39045596}
   m_EdgeRadius: 0
---- !u!114 &5511305116223416995
+--- !u!114 &2553691980154196037
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -67,11 +67,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5511305116223416998}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 546e2e966b537ad4291e1a2094bde60b, type: 3}
+  m_Script: {fileID: 11500000, guid: eae477119a708bd85a0e51e4d4c6faf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Player1: {fileID: 0}
   Player2: {fileID: 0}
   NovoPrefab: {fileID: 3137978760827142699, guid: 569989fac4b61976b8afafb9bac75bfb,
     type: 3}
-  TeleportPosition: {fileID: 0}

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6413971538149785792}
   - component: {fileID: 6413971538149785793}
-  - component: {fileID: 6413971538149785794}
+  - component: {fileID: 3382030761915638219}
   m_Layer: 0
   m_Name: MudaCirculo
   m_TagString: MudaCirculo
@@ -58,7 +58,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.39045608, y: 0.39045596}
   m_EdgeRadius: 0
---- !u!114 &6413971538149785794
+--- !u!114 &3382030761915638219
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -67,11 +67,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6413971538149785795}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 546e2e966b537ad4291e1a2094bde60b, type: 3}
+  m_Script: {fileID: 11500000, guid: eae477119a708bd85a0e51e4d4c6faf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Player1: {fileID: 0}
   Player2: {fileID: 0}
   NovoPrefab: {fileID: 2151837942538394351, guid: c6a5418f069c59b7caf2a1bc0873dd76,
     type: 3}
-  TeleportPosition: {fileID: 0}
