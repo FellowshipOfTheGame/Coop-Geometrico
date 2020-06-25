@@ -318,7 +318,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!1 &340305065
 GameObject:
   m_ObjectHideFlags: 0
@@ -512,6 +512,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 273593632}
     m_Modifications:
+    - target: {fileID: 3137978761998994038, guid: 569989fac4b61976b8afafb9bac75bfb,
+        type: 3}
+      propertyPath: m_UsedByComposite
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3137978761998994038, guid: 569989fac4b61976b8afafb9bac75bfb,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.012646109
+      objectReference: {fileID: 0}
+    - target: {fileID: 3137978761998994038, guid: 569989fac4b61976b8afafb9bac75bfb,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.013065636
+      objectReference: {fileID: 0}
     - target: {fileID: 9089071109629339563, guid: 569989fac4b61976b8afafb9bac75bfb,
         type: 3}
       propertyPath: m_Name
@@ -1159,7 +1174,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!1 &2097591569
 GameObject:
   m_ObjectHideFlags: 0
@@ -1560,6 +1575,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3658324041706929271, guid: c5b2e35b41f52a66cb52345e5699f5df,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.01801461
+      objectReference: {fileID: 0}
+    - target: {fileID: 3658324041706929271, guid: c5b2e35b41f52a66cb52345e5699f5df,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -0.00065246224
+      objectReference: {fileID: 0}
+    - target: {fileID: 3658324041706929271, guid: c5b2e35b41f52a66cb52345e5699f5df,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.017131686
       objectReference: {fileID: 0}
     - target: {fileID: 6078123571313092792, guid: c5b2e35b41f52a66cb52345e5699f5df,
         type: 3}

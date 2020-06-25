@@ -53,6 +53,7 @@ public class PlayerMovement : MonoBehaviour
 
             if(emCima)
             {
+                Debug.Log("Em cima player1");
                 var dist = p2.transform.position - ultimaPos2;
                 p1.transform.position+= new Vector3(dist.x,0,0);
             }
@@ -84,6 +85,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if(emCima)
             {
+                Debug.Log("Em cima player2");
                 var dist = p1.transform.position - ultimaPos1;
                 p2.transform.position+= new Vector3(dist.x,0,0);
             }
