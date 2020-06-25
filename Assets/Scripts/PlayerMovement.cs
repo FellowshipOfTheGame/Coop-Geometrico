@@ -106,8 +106,8 @@ public class PlayerMovement : MonoBehaviour
 
             if(Input.GetButton("Jump2") && !isJumping) {
                 Debug.Log("pulou");
-                rigidbody.AddForce(new Vector2(rigidbody.velocity.x, jumpForce));
                 isJumping = true;
+                rigidbody.AddForce(new Vector2(rigidbody.velocity.x, jumpForce));
             }
             ultimaPos1 = p1.transform.position;
         }

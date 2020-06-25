@@ -17,6 +17,7 @@ TagManager:
   - PortaTriangulo
   - PortaCirculo
   - PortaQuadrado
+  - Botao
   layers:
   - Default
   - TransparentFX

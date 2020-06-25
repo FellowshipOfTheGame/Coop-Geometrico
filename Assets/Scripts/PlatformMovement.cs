@@ -7,6 +7,7 @@ public class PlatformMovement : MonoBehaviour
     public Transform pos1, pos2;
     public float speed;
     public Transform startPos;
+    public bool ativada;
 
     Vector3 nextPos;
 
@@ -25,7 +26,8 @@ public class PlatformMovement : MonoBehaviour
         if(transform.position == pos2.position)
             nextPos = pos1.position;
 
-        transform.position = Vector3.MoveTowards(transform.position, nextPos, speed*Time.deltaTime);
+        if(ativada == true)
+            transform.position = Vector3.MoveTowards(transform.position, nextPos, speed*Time.deltaTime);
     }
 
     private void OnDrawGizmos() {

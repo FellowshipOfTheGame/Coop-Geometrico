@@ -11,6 +11,7 @@ public class objColision : MonoBehaviour
     private bool ColisaoP1 = false;
     private bool ColisaoP2 = false;
     private string tipo;
+    public GameObject Plataforma;
 
     // Start is called before the first frame update
     void Start()
@@ -29,21 +30,27 @@ public class objColision : MonoBehaviour
                 gameObject.tag == "MudaQuadrado" ||
                 gameObject.tag == "MudaCirculo")
             tipo = "Muda";
+
+        if(gameObject.tag == "Botao")
+            tipo = "Botao";
+
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
         /* Caso o player1 colida com a porta*/
-        if(Player1.transform.GetChild(0).tag == tipo || tipo == "Muda")
+        if(Player1.transform.GetChild(0).tag == tipo || tipo == "Muda" || tipo == "Botao")
         {
             if(Object.ReferenceEquals(Player1, other.gameObject.transform.parent.gameObject))
             {
+                if(tipo == "Botao")
+                    Debug.Log("colidiu com botao");
                 ColisaoP1 = true;
             }
         }
 
 
         /* Caso o player2 colida com a porta*/
-        if(Player2.transform.GetChild(0).tag == tipo || tipo == "Muda")
+        if(Player2.transform.GetChild(0).tag == tipo || tipo == "Muda" || tipo == "Botao")
         {
             if(Object.ReferenceEquals(Player2, other.gameObject.transform.parent.gameObject))
             {
@@ -88,6 +95,15 @@ public class objColision : MonoBehaviour
                 /* Teleporta o personagem */
                 Player1.transform.position = new Vector2 (TeleportPosition.position.x, TeleportPosition.position.y);
             }
+
+            /* Ativa a plataforma */
+            if(tipo == "Botao")
+            {
+                Debug.Log("botao ativado");
+                if(Plataforma.GetComponent<PlatformMovement>().ativada == false)
+                    Plataforma.GetComponent<PlatformMovement>().ativada = true;
+                else Plataforma.GetComponent<PlatformMovement>().ativada = false;
+            }
         }
 
         if(Input.GetKeyDown(KeyCode.L) && ColisaoP2 == true)
@@ -107,6 +123,14 @@ public class objColision : MonoBehaviour
             {
                 /* Teleporta o personagem */
                 Player2.transform.position = new Vector2 (TeleportPosition.position.x, TeleportPosition.position.y);
+            }
+
+            if(tipo == "Botao")
+            {
+                Debug.Log("botao ativado");
+                if(Plataforma.GetComponent<PlatformMovement>().ativada == false)
+                    Plataforma.GetComponent<PlatformMovement>().ativada = true;
+                else Plataforma.GetComponent<PlatformMovement>().ativada = false;
             }
         }
 
