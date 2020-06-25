@@ -20,8 +20,21 @@ public class PlayerJump : MonoBehaviour
         }*/
         playerMovement.isJumping = false;
 
+        Debug.Log(other.tag);
+
+        if(other.gameObject.CompareTag("Ground")) {
+            playerMovement.isJumping = false;
+        }
+
         if(other.gameObject.CompareTag("Platform")) {
             player.transform.parent = other.gameObject.transform;
+        }
+
+        if(other.gameObject.CompareTag("Quadrado"))
+        {
+            Debug.Log("está em cima de outro player!");
+            playerMovement.isJumping = false;
+            playerMovement.emCima = true;
         }
     }
 
