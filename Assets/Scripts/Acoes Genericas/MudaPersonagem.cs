@@ -23,7 +23,6 @@ public class MudaPersonagem : MonoBehaviour
         {
             ColisaoP2 = true;
         }
-
     }
 
     private void OnTriggerExit2D(Collider2D other) {
@@ -58,6 +57,5 @@ public class MudaPersonagem : MonoBehaviour
             var PlayerTrocado = Instantiate(NovoPrefab, Player2.transform.position, Quaternion.identity);
             PlayerTrocado.transform.parent = Player2.transform;
         }
-
     }
 }

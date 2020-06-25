@@ -21,8 +21,6 @@ public class BotaoPlataforma : MonoBehaviour
         {
             ColisaoP2 = true;
         }
-
-
     }
 
     private void OnTriggerExit2D(Collider2D other) {
@@ -56,6 +54,5 @@ public class BotaoPlataforma : MonoBehaviour
                 Plataforma.GetComponent<PlatformMovement>().ativada = true;
             else Plataforma.GetComponent<PlatformMovement>().ativada = false;
         }
-
     }
 }
