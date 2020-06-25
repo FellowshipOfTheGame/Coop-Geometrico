@@ -66,24 +66,14 @@ public class EntraPorta : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.E) && ColisaoP1 == true)
         {
-            if(gameObject.tag == "PortaTriangulo" ||
-               gameObject.tag == "PortaQuadrado" ||
-               gameObject.tag == "PortaCirculo")
-            {
-                /* Teleporta o personagem */
-                Player1.transform.position = new Vector2 (TeleportPosition.position.x, TeleportPosition.position.y);
-            }
+            /* Teleporta o personagem */
+            Player1.transform.position = new Vector2 (TeleportPosition.position.x, TeleportPosition.position.y);
         }
 
         if(Input.GetKeyDown(KeyCode.L) && ColisaoP2 == true)
         {
-            if(gameObject.tag == "PortaTriangulo" ||
-               gameObject.tag == "PortaQuadrado" ||
-               gameObject.tag == "PortaCirculo")
-            {
-                /* Teleporta o personagem */
-                Player2.transform.position = new Vector2 (TeleportPosition.position.x, TeleportPosition.position.y);
-            }
+            /* Teleporta o personagem */
+            Player2.transform.position = new Vector2 (TeleportPosition.position.x, TeleportPosition.position.y);
         }
     }
 }
