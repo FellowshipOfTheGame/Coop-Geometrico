@@ -20,7 +20,6 @@ public class PlayerJump : MonoBehaviour
         }*/
         playerMovement.isJumping = false;
 
-        Debug.Log(other.tag);
 
         if(other.gameObject.CompareTag("Ground")) {
             playerMovement.isJumping = false;
@@ -32,7 +31,6 @@ public class PlayerJump : MonoBehaviour
 
         if(other.gameObject.CompareTag("Quadrado"))
         {
-            Debug.Log("está em cima de outro player!");
             playerMovement.isJumping = false;
             playerMovement.emCima = true;
         }
@@ -51,7 +49,6 @@ public class PlayerJump : MonoBehaviour
 
         if(other.gameObject.CompareTag("Triangulo"))
         {
-            Debug.Log("Saiu do player 2");
             playerMovement.emCima = false;
         }
     }

@@ -53,7 +53,6 @@ public class PlayerMovement : MonoBehaviour
 
             if(emCima)
             {
-                Debug.Log("Em cima player1");
                 var dist = p2.transform.position - ultimaPos2;
                 p1.transform.position+= new Vector3(dist.x,0,0);
             }
@@ -74,7 +73,6 @@ public class PlayerMovement : MonoBehaviour
                 //animator.SetFloat("speed",(float)0);
 
             if(Input.GetButton("Jump") && !isJumping) {
-                Debug.Log("pulou");
                 rigidbody.AddForce(new Vector2(rigidbody.velocity.x, jumpForce));
                 isJumping = true;
             }
@@ -85,7 +83,6 @@ public class PlayerMovement : MonoBehaviour
         {
             if(emCima)
             {
-                Debug.Log("Em cima player2");
                 var dist = p1.transform.position - ultimaPos1;
                 p2.transform.position+= new Vector3(dist.x,0,0);
             }
@@ -107,7 +104,6 @@ public class PlayerMovement : MonoBehaviour
                 //animator.SetFloat("speed",(float)0);
 
             if(Input.GetButton("Jump2") && !isJumping) {
-                Debug.Log("pulou");
                 isJumping = true;
                 rigidbody.AddForce(new Vector2(rigidbody.velocity.x, jumpForce));
             }
