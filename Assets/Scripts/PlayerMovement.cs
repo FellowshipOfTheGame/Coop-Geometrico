@@ -50,6 +50,10 @@ public class PlayerMovement : MonoBehaviour
 
         if(gameObject.name == "Player1")
         {
+            if(Input.GetButton("Jump") && !isJumping) {
+                isJumping = true;
+                rigidbody.AddForce(new Vector2(rigidbody.velocity.x, jumpForce));
+            }
 
             if(emCima)
             {
@@ -72,17 +76,16 @@ public class PlayerMovement : MonoBehaviour
                 transform.eulerAngles = new Vector3(0, 0, 0);
             } else if(move == 0)
                 //animator.SetFloat("speed",(float)0);
-
-            if(Input.GetButton("Jump") && !isJumping) {
-                Debug.Log("pulou");
-                rigidbody.AddForce(new Vector2(rigidbody.velocity.x, jumpForce));
-                isJumping = true;
-            }
             ultimaPos2 = p2.transform.position;
         }
 
         if(gameObject.name == "Player2")
         {
+            if(Input.GetButton("Jump2") && !isJumping) {
+                isJumping = true;
+                rigidbody.AddForce(new Vector2(rigidbody.velocity.x, jumpForce));
+            }
+            
             if(emCima)
             {
                 Debug.Log("Em cima player2");
@@ -106,11 +109,7 @@ public class PlayerMovement : MonoBehaviour
             } else if(move == 0)
                 //animator.SetFloat("speed",(float)0);
 
-            if(Input.GetButton("Jump2") && !isJumping) {
-                Debug.Log("pulou");
-                isJumping = true;
-                rigidbody.AddForce(new Vector2(rigidbody.velocity.x, jumpForce));
-            }
+            
             ultimaPos1 = p1.transform.position;
         }
 
