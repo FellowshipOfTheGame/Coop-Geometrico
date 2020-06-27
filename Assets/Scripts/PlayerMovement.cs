@@ -50,6 +50,10 @@ public class PlayerMovement : MonoBehaviour
 
         if(gameObject.name == "Player1")
         {
+            if(Input.GetButton("Jump") && !isJumping) {
+                isJumping = true;
+                rigidbody.AddForce(new Vector2(rigidbody.velocity.x, jumpForce));
+            }
 
             if(emCima)
             {
@@ -71,16 +75,24 @@ public class PlayerMovement : MonoBehaviour
                 transform.eulerAngles = new Vector3(0, 0, 0);
             } else if(move == 0)
                 //animator.SetFloat("speed",(float)0);
+<<<<<<< HEAD
 
             if(Input.GetButton("Jump") && !isJumping) {
                 rigidbody.AddForce(new Vector2(rigidbody.velocity.x, jumpForce));
                 isJumping = true;
             }
+=======
+>>>>>>> ce6c01ed2afdba0c3ff26cbf87612899bea63cd4
             ultimaPos2 = p2.transform.position;
         }
 
         if(gameObject.name == "Player2")
         {
+            if(Input.GetButton("Jump2") && !isJumping) {
+                isJumping = true;
+                rigidbody.AddForce(new Vector2(rigidbody.velocity.x, jumpForce));
+            }
+            
             if(emCima)
             {
                 var dist = p1.transform.position - ultimaPos1;
@@ -103,10 +115,14 @@ public class PlayerMovement : MonoBehaviour
             } else if(move == 0)
                 //animator.SetFloat("speed",(float)0);
 
+<<<<<<< HEAD
             if(Input.GetButton("Jump2") && !isJumping) {
                 isJumping = true;
                 rigidbody.AddForce(new Vector2(rigidbody.velocity.x, jumpForce));
             }
+=======
+            
+>>>>>>> ce6c01ed2afdba0c3ff26cbf87612899bea63cd4
             ultimaPos1 = p1.transform.position;
         }
 

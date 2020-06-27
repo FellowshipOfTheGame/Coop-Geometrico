@@ -14,6 +14,7 @@ public class PlayerJump : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
+<<<<<<< HEAD
         /*if(other.CompareTag("Player1"))
         {
             Debug.Break();
@@ -29,11 +30,18 @@ public class PlayerJump : MonoBehaviour
             player.transform.parent = other.gameObject.transform;
         }
 
+=======
+>>>>>>> ce6c01ed2afdba0c3ff26cbf87612899bea63cd4
         if(other.gameObject.CompareTag("Quadrado"))
         {
             playerMovement.isJumping = false;
             playerMovement.emCima = true;
         }
+        playerMovement.isJumping = false;
+        if(other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("Platform")) {
+            
+        }
+        
     }
 
     private void OnTriggerExit2D(Collider2D other) {
