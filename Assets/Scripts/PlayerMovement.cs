@@ -12,33 +12,45 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rigidbody;
     public GameObject p1;
     public GameObject p2;
-    public Animator animator;
     private Vector3 ultimaPos1;
     private Vector3 ultimaPos2;
+
+    public Animator animator;
+    public Animator animator_child;
+
+
     private Transform playerChild;
     // Start is called before the first frame update
     void Start()
     {
+        //animator = GetComponent<Animator>();
+        //animator_child = GetComponentInParent<Animator>();
+
+        playerChild = this.gameObject.transform.GetChild(0);
+
         rigidbody = gameObject.GetComponent<Rigidbody2D>();
         if(playerChild.tag == "Quadrado")
         {
-            animator.SetBool("isQuadrado", true);
-            animator.SetBool("isTriangulo", false);
-            animator.SetBool("isCirculo", false);
+            Debug.Log("É quadrado meu!");
+            animator_child.SetBool("isQuadrado", true);
+            animator_child.SetBool("isTriangulo", false);
+            animator_child.SetBool("isCirculo", false);
         }
 
         if(playerChild.tag == "Triangulo")
         {
-            animator.SetBool("isQuadrado", false);
-            animator.SetBool("isTriangulo", true);
-            animator.SetBool("isCirculo", false);
+            Debug.Log("É triangulo meu!");
+            animator_child.SetBool("isQuadrado", false);
+            animator_child.SetBool("isTriangulo", true);
+            animator_child.SetBool("isCirculo", false);
         }
 
         if(playerChild.tag == "Circulo")
         {
-            animator.SetBool("isQuadrado", false);
-            animator.SetBool("isTriangulo", false);
-            animator.SetBool("isCirculo", true);
+            Debug.Log("É circulo meu!");
+            animator_child.SetBool("isQuadrado", false);
+            animator_child.SetBool("isTriangulo", false);
+            animator_child.SetBool("isCirculo", true);
         }
     }
 
@@ -53,6 +65,7 @@ public class PlayerMovement : MonoBehaviour
             if(Input.GetButton("Jump") && !isJumping) {
                 isJumping = true;
                 rigidbody.AddForce(new Vector2(rigidbody.velocity.x, jumpForce));
+                animator_child.SetBool("isJumping", true);
             }
 
             if(emCima)
@@ -67,22 +80,14 @@ public class PlayerMovement : MonoBehaviour
 
             if(move < 0)
             {
-                //animator.SetFloat("speed",(move*-1));
+                animator_child.SetFloat("speed",(move*-1));
                 transform.eulerAngles = new Vector3(0, 180, 0);
             } else if(move > 0)
             {
-                //animator.SetFloat("speed",move);
+                animator_child.SetFloat("speed",move);
                 transform.eulerAngles = new Vector3(0, 0, 0);
             } else if(move == 0)
-                //animator.SetFloat("speed",(float)0);
-<<<<<<< HEAD
-
-            if(Input.GetButton("Jump") && !isJumping) {
-                rigidbody.AddForce(new Vector2(rigidbody.velocity.x, jumpForce));
-                isJumping = true;
-            }
-=======
->>>>>>> ce6c01ed2afdba0c3ff26cbf87612899bea63cd4
+                animator_child.SetFloat("speed",(float)0);
             ultimaPos2 = p2.transform.position;
         }
 
@@ -91,6 +96,7 @@ public class PlayerMovement : MonoBehaviour
             if(Input.GetButton("Jump2") && !isJumping) {
                 isJumping = true;
                 rigidbody.AddForce(new Vector2(rigidbody.velocity.x, jumpForce));
+                animator_child.SetBool("isJumping", true);
             }
             
             if(emCima)
@@ -105,24 +111,17 @@ public class PlayerMovement : MonoBehaviour
 
             if(move < 0)
             {
-                //animator.SetFloat("speed",(move*-1));
+                animator_child.SetFloat("speed",(move*-1));
                 transform.eulerAngles = new Vector3(0, 180, 0);
             }
             else if(move > 0)
             {
-                //animator.SetFloat("speed",move);
+                animator_child.SetFloat("speed",move);
                 transform.eulerAngles = new Vector3(0, 0, 0);
             } else if(move == 0)
-                //animator.SetFloat("speed",(float)0);
+                animator_child.SetFloat("speed",(float)0);
 
-<<<<<<< HEAD
-            if(Input.GetButton("Jump2") && !isJumping) {
-                isJumping = true;
-                rigidbody.AddForce(new Vector2(rigidbody.velocity.x, jumpForce));
-            }
-=======
             
->>>>>>> ce6c01ed2afdba0c3ff26cbf87612899bea63cd4
             ultimaPos1 = p1.transform.position;
         }
 

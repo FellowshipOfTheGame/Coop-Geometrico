@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Circulo_jump
+  m_Name: Parede_idle
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,16 +20,7 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 7999969274959407159, guid: 676fa2ad8091e704f8962281ea471df2,
-        type: 3}
-    - time: 0.41666666
-      value: {fileID: 249474559980975759, guid: 676fa2ad8091e704f8962281ea471df2,
-        type: 3}
-    - time: 0.76666665
-      value: {fileID: 179173025687594190, guid: 676fa2ad8091e704f8962281ea471df2,
-        type: 3}
-    - time: 2.1333334
-      value: {fileID: 179173025687594190, guid: 676fa2ad8091e704f8962281ea471df2,
+      value: {fileID: 1443346890515795629, guid: 588300f30692d4c44a840e18632728e0,
         type: 3}
     attribute: m_Sprite
     path: 
@@ -50,16 +41,13 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 7999969274959407159, guid: 676fa2ad8091e704f8962281ea471df2, type: 3}
-    - {fileID: 249474559980975759, guid: 676fa2ad8091e704f8962281ea471df2, type: 3}
-    - {fileID: 179173025687594190, guid: 676fa2ad8091e704f8962281ea471df2, type: 3}
-    - {fileID: 179173025687594190, guid: 676fa2ad8091e704f8962281ea471df2, type: 3}
+    - {fileID: 1443346890515795629, guid: 588300f30692d4c44a840e18632728e0, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 2.15
+    m_StopTime: 0.016666668
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
