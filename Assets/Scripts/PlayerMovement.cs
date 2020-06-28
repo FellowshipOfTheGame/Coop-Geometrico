@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rigidbody;
     public GameObject p1;
     public GameObject p2;
-    //public Animator animator;
+    public Animator animator;
     private Vector3 ultimaPos1;
     private Vector3 ultimaPos2;
     private Transform playerChild;
@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rigidbody = gameObject.GetComponent<Rigidbody2D>();
-        /*if(playerChild.tag == "Quadrado")
+        if(playerChild.tag == "Quadrado")
         {
             animator.SetBool("isQuadrado", true);
             animator.SetBool("isTriangulo", false);
@@ -39,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("isQuadrado", false);
             animator.SetBool("isTriangulo", false);
             animator.SetBool("isCirculo", true);
-        }*/
+        }
     }
 
 
