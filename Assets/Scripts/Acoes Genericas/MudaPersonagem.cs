@@ -7,9 +7,8 @@ public class MudaPersonagem : MonoBehaviour
     public GameObject Player1;
     public GameObject Player2;
     public GameObject NovoPrefab;
-    private bool ColisaoP1 = false;
-    private bool ColisaoP2 = false;
-
+    public bool ColisaoP1 = false;
+    public bool ColisaoP2 = false;
 
     private void OnTriggerEnter2D(Collider2D other) {
         /* Caso o player1 colida com a porta*/
@@ -45,9 +44,9 @@ public class MudaPersonagem : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.E) && ColisaoP1 == true)
         {
             /* Troca o personagem */
-            Destroy(Player1.transform.GetChild(0).gameObject);
-            var PlayerTrocado = Instantiate(NovoPrefab, Player1.transform.position, Quaternion.identity);
-            PlayerTrocado.transform.parent = Player1.transform;
+            Destroy(Player2.transform.GetChild(0).gameObject);
+            var PlayerTrocado = Instantiate(NovoPrefab, Player2.transform.position, Quaternion.identity);
+            PlayerTrocado.transform.parent = Player2.transform;
         }
 
         if(Input.GetKeyDown(KeyCode.L) && ColisaoP2 == true)

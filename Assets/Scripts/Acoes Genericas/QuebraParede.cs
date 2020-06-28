@@ -17,7 +17,7 @@ public class QuebraParede : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.collider.gameObject.tag == "Triangulo" && other.relativeVelocity.magnitude > 6)
+        if (other.collider.gameObject.tag == "Triangulo" && other.relativeVelocity.magnitude > 4)
         {
             Debug.Log("Colidiu!");
             animator.SetBool("break",true);

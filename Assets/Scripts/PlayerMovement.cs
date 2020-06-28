@@ -18,7 +18,6 @@ public class PlayerMovement : MonoBehaviour
     public Animator animator;
     public Animator animator_child;
 
-
     private Transform playerChild;
     // Start is called before the first frame update
     void Start()
@@ -98,7 +97,7 @@ public class PlayerMovement : MonoBehaviour
                 rigidbody.AddForce(new Vector2(rigidbody.velocity.x, jumpForce));
                 animator_child.SetBool("isJumping", true);
             }
-            
+
             if(emCima)
             {
                 var dist = p1.transform.position - ultimaPos1;
@@ -121,7 +120,7 @@ public class PlayerMovement : MonoBehaviour
             } else if(move == 0)
                 animator_child.SetFloat("speed",(float)0);
 
-            
+
             ultimaPos1 = p1.transform.position;
         }
 
