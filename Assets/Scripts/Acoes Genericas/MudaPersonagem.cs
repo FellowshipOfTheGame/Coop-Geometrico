@@ -44,9 +44,9 @@ public class MudaPersonagem : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.E) && ColisaoP1 == true)
         {
             /* Troca o personagem */
-            Destroy(Player2.transform.GetChild(0).gameObject);
-            var PlayerTrocado = Instantiate(NovoPrefab, Player2.transform.position, Quaternion.identity);
-            PlayerTrocado.transform.parent = Player2.transform;
+            Destroy(Player1.transform.GetChild(0).gameObject);
+            var PlayerTrocado = Instantiate(NovoPrefab, Player1.transform.position, Quaternion.identity);
+            PlayerTrocado.transform.parent = Player1.transform;
         }
 
         if(Input.GetKeyDown(KeyCode.L) && ColisaoP2 == true)
