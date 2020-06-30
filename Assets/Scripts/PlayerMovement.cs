@@ -29,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
         animator_child = playerChild.GetComponent<Animator>();
 
         rigidbody = gameObject.GetComponent<Rigidbody2D>();
-        if(playerChild.tag == "Quadrado")
+        if (playerChild.tag == "Quadrado")
         {
             Debug.Log("É quadrado meu!");
             animator_child.SetBool("isQuadrado", true);
@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
             animator_child.SetBool("isCirculo", false);
         }
 
-        if(playerChild.tag == "Triangulo")
+        if (playerChild.tag == "Triangulo")
         {
             Debug.Log("É triangulo meu!");
             animator_child.SetBool("isQuadrado", false);
@@ -45,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
             animator_child.SetBool("isCirculo", false);
         }
 
-        if(playerChild.tag == "Circulo")
+        if (playerChild.tag == "Circulo")
         {
             Debug.Log("É circulo meu!");
             animator_child.SetBool("isQuadrado", false);
@@ -59,75 +59,98 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (gameObject.transform.GetChild(0).tag == "Triangulo")
+        {
+            jumpForce = 380;
+            playerSpeed = 6;
+        }
+
+        if (gameObject.transform.GetChild(0).tag == "Quadrado")
+        {
+            jumpForce = 470;
+            playerSpeed = 5;
+        }
+
+        if (gameObject.transform.GetChild(0).tag == "Circulo")
+        {
+            jumpForce = 600;
+            playerSpeed = 5;
+        }
+
         playerChild = this.gameObject.transform.GetChild(0);
         animator_child = playerChild.GetComponent<Animator>();
 
-        if(gameObject.name == "Player1")
+        if (gameObject.name == "Player1")
         {
-            if(Input.GetButton("Jump") && !isJumping) {
+            if (Input.GetButton("Jump") && !isJumping)
+            {
                 isJumping = true;
                 rigidbody.AddForce(new Vector2(rigidbody.velocity.x, jumpForce));
                 animator_child.SetBool("isJumping", true);
             }
 
-            if(emCima)
+            if (emCima)
             {
                 var dist = p2.transform.position - ultimaPos2;
-                p1.transform.position+= new Vector3(dist.x,0,0);
+                p1.transform.position += new Vector3(dist.x, 0, 0);
             }
 
             move = Input.GetAxis("Horizontal");
 
-            rigidbody.velocity = new Vector3(move*playerSpeed, rigidbody.velocity.y);
+            rigidbody.velocity = new Vector3(move * playerSpeed, rigidbody.velocity.y);
 
-            if(move < 0)
+            if (move < 0)
             {
-                animator_child.SetFloat("speed",(move*-1));
+                animator_child.SetFloat("speed", (move * -1));
                 transform.eulerAngles = new Vector3(0, 180, 0);
-            } else if(move > 0)
+            }
+            else if (move > 0)
             {
-                animator_child.SetFloat("speed",move);
+                animator_child.SetFloat("speed", move);
                 transform.eulerAngles = new Vector3(0, 0, 0);
-            } else if(move == 0)
-                animator_child.SetFloat("speed",(float)0);
+            }
+            else if (move == 0)
+                animator_child.SetFloat("speed", (float)0);
             ultimaPos2 = p2.transform.position;
         }
 
-        if(gameObject.name == "Player2")
+        if (gameObject.name == "Player2")
         {
-            if(Input.GetButton("Jump2") && !isJumping) {
+            if (Input.GetButton("Jump2") && !isJumping)
+            {
                 isJumping = true;
                 rigidbody.AddForce(new Vector2(rigidbody.velocity.x, jumpForce));
                 animator_child.SetBool("isJumping", true);
             }
 
-            if(emCima)
+            if (emCima)
             {
                 var dist = p1.transform.position - ultimaPos1;
-                p2.transform.position+= new Vector3(dist.x,0,0);
+                p2.transform.position += new Vector3(dist.x, 0, 0);
             }
 
             move = Input.GetAxis("Horizontal2");
 
-            rigidbody.velocity = new Vector3(move*playerSpeed, rigidbody.velocity.y);
+            rigidbody.velocity = new Vector3(move * playerSpeed, rigidbody.velocity.y);
 
-            if(move < 0)
+            if (move < 0)
             {
-                animator_child.SetFloat("speed",(move*-1));
+                animator_child.SetFloat("speed", (move * -1));
                 transform.eulerAngles = new Vector3(0, 180, 0);
             }
-            else if(move > 0)
+            else if (move > 0)
             {
-                animator_child.SetFloat("speed",move);
+                animator_child.SetFloat("speed", move);
                 transform.eulerAngles = new Vector3(0, 0, 0);
-            } else if(move == 0)
-                animator_child.SetFloat("speed",(float)0);
+            }
+            else if (move == 0)
+                animator_child.SetFloat("speed", (float)0);
 
 
             ultimaPos1 = p1.transform.position;
         }
 
-        if(playerChild.tag == "Quadrado")
+        if (playerChild.tag == "Quadrado")
         {
             Debug.Log("É quadrado meu!");
             animator_child.SetBool("isQuadrado", true);
@@ -135,7 +158,7 @@ public class PlayerMovement : MonoBehaviour
             animator_child.SetBool("isCirculo", false);
         }
 
-        if(playerChild.tag == "Triangulo")
+        if (playerChild.tag == "Triangulo")
         {
             Debug.Log("É triangulo meu!");
             animator_child.SetBool("isQuadrado", false);
@@ -143,7 +166,7 @@ public class PlayerMovement : MonoBehaviour
             animator_child.SetBool("isCirculo", false);
         }
 
-        if(playerChild.tag == "Circulo")
+        if (playerChild.tag == "Circulo")
         {
             Debug.Log("É circulo meu!");
             animator_child.SetBool("isQuadrado", false);

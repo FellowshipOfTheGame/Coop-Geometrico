@@ -30,7 +30,7 @@ public class PlayerJump : MonoBehaviour
         animator.SetBool("isJumping", false);
 
         if(other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("Platform")) {
-
+            player.transform.parent = other.gameObject.transform;
         }
 
     }
