@@ -28,17 +28,17 @@ public class PlayerJump : MonoBehaviour
         }
         playerMovement.isJumping = false;
         animator.SetBool("isJumping", false);
-        
+
         if(other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("Platform")) {
-            
+
         }
-        
+
     }
 
     private void OnTriggerExit2D(Collider2D other) {
         if(other.gameObject.CompareTag("Platform")) {
             player.transform.parent = null;
-            player.transform.localScale = new Vector3(1, 1, 1);
+            player.transform.localScale = new Vector3(2, 2, 2);
         }
 
         if(other.gameObject.CompareTag("Quadrado"))

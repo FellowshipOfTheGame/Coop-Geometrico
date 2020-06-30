@@ -50,6 +50,7 @@ public class MudaPersonagem : MonoBehaviour
             /* Troca o personagem */
             Destroy(Player1.transform.GetChild(0).gameObject);
             var PlayerTrocado = Instantiate(NovoPrefab, Player1.transform.position, Quaternion.identity);
+            PlayerTrocado.transform.localScale = new Vector3(2, 2, 2);
             PlayerTrocado.transform.parent = Player1.transform;
         }
 
@@ -58,6 +59,7 @@ public class MudaPersonagem : MonoBehaviour
             /* Troca o personagem */
             Destroy(Player2.transform.GetChild(0).gameObject);
             var PlayerTrocado = Instantiate(NovoPrefab, Player2.transform.position, Quaternion.identity);
+            PlayerTrocado.transform.localScale = new Vector3(2, 2, 2);
             PlayerTrocado.transform.parent = Player2.transform;
         }
     }

@@ -29,25 +29,25 @@ TagManager:
   - 
   - Player
   - Playground
+  - 
+  - Box
+  - Tilemap
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   - Background
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
   - 
   - 
   - 
@@ -57,4 +57,16 @@ TagManager:
     locked: 0
   - name: Background
     uniqueID: 249415487
+    locked: 0
+  - name: Box
+    uniqueID: 2635402537
+    locked: 0
+  - name: Player
+    uniqueID: 2955784197
+    locked: 0
+  - name: Tilemap
+    uniqueID: 1507657625
+    locked: 0
+  - name: UI
+    uniqueID: 3647025047
     locked: 0
