@@ -16,16 +16,17 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 ultimaPos2;
 
     public Animator animator;
-    public Animator animator_child;
+    private Animator animator_child;
 
     private Transform playerChild;
     // Start is called before the first frame update
     void Start()
     {
         //animator = GetComponent<Animator>();
-        //animator_child = GetComponentInParent<Animator>();
+        //animator_child = GetComponentInChildren<Animator>();
 
         playerChild = this.gameObject.transform.GetChild(0);
+        animator_child = playerChild.GetComponent<Animator>();
 
         rigidbody = gameObject.GetComponent<Rigidbody2D>();
         if(playerChild.tag == "Quadrado")
@@ -58,6 +59,8 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        playerChild = this.gameObject.transform.GetChild(0);
+        animator_child = playerChild.GetComponent<Animator>();
 
         if(gameObject.name == "Player1")
         {
@@ -124,9 +127,28 @@ public class PlayerMovement : MonoBehaviour
             ultimaPos1 = p1.transform.position;
         }
 
-        if(gameObject.tag == "Circulo")
+        if(playerChild.tag == "Quadrado")
         {
+            Debug.Log("É quadrado meu!");
+            animator_child.SetBool("isQuadrado", true);
+            animator_child.SetBool("isTriangulo", false);
+            animator_child.SetBool("isCirculo", false);
+        }
 
+        if(playerChild.tag == "Triangulo")
+        {
+            Debug.Log("É triangulo meu!");
+            animator_child.SetBool("isQuadrado", false);
+            animator_child.SetBool("isTriangulo", true);
+            animator_child.SetBool("isCirculo", false);
+        }
+
+        if(playerChild.tag == "Circulo")
+        {
+            Debug.Log("É circulo meu!");
+            animator_child.SetBool("isQuadrado", false);
+            animator_child.SetBool("isTriangulo", false);
+            animator_child.SetBool("isCirculo", true);
         }
 
     }

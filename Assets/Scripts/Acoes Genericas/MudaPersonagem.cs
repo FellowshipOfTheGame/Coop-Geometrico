@@ -10,6 +10,10 @@ public class MudaPersonagem : MonoBehaviour
     public bool ColisaoP1 = false;
     public bool ColisaoP2 = false;
 
+    private Animator animator_child;
+
+    private Transform playerChild;
+
     private void OnTriggerEnter2D(Collider2D other) {
         /* Caso o player1 colida com a porta*/
         if(Object.ReferenceEquals(Player1, other.gameObject.transform.parent.gameObject))

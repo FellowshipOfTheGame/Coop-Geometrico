@@ -83,7 +83,7 @@ GameObject:
   - component: {fileID: 2151837942538394347}
   - component: {fileID: 2151837942538394349}
   m_Layer: 0
-  m_Name: Player1_Circulo
+  m_Name: Player_Circulo
   m_TagString: Circulo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -188,7 +188,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2151837942538394351}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 3a7bc00dc5579104096893f19267df7d, type: 2}
   m_CullingMode: 0
