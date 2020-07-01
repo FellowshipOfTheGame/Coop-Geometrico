@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Tutorial.unity
     guid: dba19f6a6ff152d4e81089df5b88d994
   - enabled: 1
-    path: Assets/Scenes/movimentacao.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
+    path: Assets/Scenes/Fase1.unity
+    guid: 28e8b185f1bd5214b9d4b235a8405608
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: e870a16b638743247bd1bceb86e2a81e
   m_configObjects: {}
